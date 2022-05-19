@@ -17,27 +17,11 @@ public class FileMonitor {
     File[] afilein = input.listFiles();
     File[] afileout = output.listFiles();
 
-    public boolean notificationDataInDirectory() {
-        if (refreshInputFileList() == null) {
-            System.out.println("Data/in not found");
-            return false;
-        }
-        return true;
-    }
-
-    public boolean notificationDataOutDirectory() {
-        if (refreshInputFileList() == null) {
-            System.out.println("Data/out not found");
-            return false;
-        }
-        return true;
-    }
-
-    private File[] refreshInputFileList() {
+    public File[] refreshInputFileList() {
         return input.listFiles();
     }
 
-    private File[] refreshOutputFileList() {
+    public File[] refreshOutputFileList() {
         return output.listFiles();
     }
 
@@ -70,7 +54,6 @@ public class FileMonitor {
     }
 
     public boolean validateFile(String fileDirectory) {
-
         File file = new File(fileDirectory);
         if (!file.exists()) {
             System.out.println("File not found");

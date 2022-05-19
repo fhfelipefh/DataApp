@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.springframework:spring-test:5.2.9.RELEASE'
     implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     implementation 'com.google.guava:guava:31.0-jre'
+    implementation 'org.jacoco:org.jacoco.core:0.8.5'
 }
 
 test {
@@ -34,5 +35,4 @@ task uberjar(type: Jar) {
     from {
         configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
     }
-
 }

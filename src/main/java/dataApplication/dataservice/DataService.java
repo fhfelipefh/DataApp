@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -22,9 +23,17 @@ public class DataService {
 
     FileCreator fileCreator = new FileCreator();
     FileMonitor fileMonitor = new FileMonitor();
-
     private final String inputDirectory = "./Data/in/";
-    private final String spacer = "ç";
+
+    byte[] byteArray = "ç".getBytes();
+    private final String spacer;
+    {
+        try {
+            spacer = new String(byteArray, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
     ArrayList<String> inputList;
     ArrayList<String> outputList;
     ArrayList<String> unprocessedFileNames;
@@ -167,6 +176,5 @@ public class DataService {
         }
         return hashSet.size();
     }
-
 
 }

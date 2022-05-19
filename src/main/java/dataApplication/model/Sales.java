@@ -34,8 +34,4 @@ public class Sales {
     public int getSaleID() {
         return saleID;
     }
-
-    public void setSaleData(ArrayList<SaleData> saleData) {
-        this.saleData = saleData;
-    }
 }

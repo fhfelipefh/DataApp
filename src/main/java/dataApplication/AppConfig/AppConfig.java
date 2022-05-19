@@ -5,6 +5,7 @@ import dataApplication.costumerDataAnalysis.CustomerDataAnalysis;
 import dataApplication.dataservice.DataService;
 import dataApplication.filemonitor.FileCreator;
 import dataApplication.filemonitor.FileMonitor;
+import dataApplication.filemonitor.FileNotification;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -42,6 +43,11 @@ public class AppConfig {
     @Bean
     public FileCreator fileCreator() {
         return new FileCreator();
+    }
+
+    @Bean
+    public FileNotification fileNotification(FileMonitor monitor) {
+        return new FileNotification(monitor);
     }
 
 }

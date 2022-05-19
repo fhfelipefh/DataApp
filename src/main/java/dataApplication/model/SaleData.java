@@ -23,10 +23,6 @@ public class SaleData {
                 '}';
     }
 
-    public int getItemID() {
-        return itemID;
-    }
-
     public int getQuantity() {
         return quantity;
     }
